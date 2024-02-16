@@ -1,0 +1,23 @@
+<div class="container">
+  <button id="step1" routerLink="/selection" routerLinkActive="active">
+    Step 1
+  </button>
+  <button
+    id="step2"
+    routerLink="/config"
+    routerLinkActive="active"
+    [disabled]="!stepService.isStep2Available"
+    [ngClass]="{ 'disabled-button': !stepService.isStep2Available }"
+  >
+    Step 2
+  </button>
+  <button
+    id="step3"
+    routerLink="/summary"
+    routerLinkActive="active"
+    [disabled]="!stepService.isStep3Available"
+    [ngClass]="{ 'disabled-button': !stepService.isStep3Available }"
+  >
+    Step 3
+  </button>
+</div>

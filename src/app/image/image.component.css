@@ -1,0 +1,9 @@
+.container {
+  margin: auto;
+  width: 90%;
+}
+
+.container img {
+  width: 100%;
+  height: auto;
+}
