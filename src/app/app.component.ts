@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NavComponent } from './nav/nav.component';
 import { ImageComponent } from './image/image.component';
+import { NavComponent } from './nav/nav.component';
 
 @Component({
   selector: 'app-root',

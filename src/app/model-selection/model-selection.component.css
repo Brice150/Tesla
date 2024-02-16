@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   width: 90%;
 }
 
@@ -12,4 +13,33 @@
   font-size: 20px;
   font-weight: 700;
   text-align: center;
+}
+
+.container .select-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+}
+
+.container .select-container span {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.container .select-container select {
+  font-size: 17px;
+  font-weight: 500;
+  border: 2px solid var(--text-color);
+  border-radius: 5px;
+  outline: none;
+  background: transparent;
+  color: var(--text-color);
+  text-align: center;
+  width: 200px;
+}
+
+.container .select-container select option {
+  background-color: var(--background-color);
 }
