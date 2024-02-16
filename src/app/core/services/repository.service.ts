@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Config } from '../interfaces/config';
 import { Model } from '../interfaces/model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RepositoryService {
-  private baseUrl: string = 'http://localhost:4200';
+  private baseUrl: string = environment.baseUrl;
 
   constructor(private http: HttpClient) {}
 
