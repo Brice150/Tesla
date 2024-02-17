@@ -1,3 +1,49 @@
 <div class="container">
   <span class="title">Step 2: Select your config and options</span>
+  <ng-container *ngIf="option$ | async as option; else loading">
+    <div class="select-container">
+      <span>Config:</span>
+      <select
+        id="configSelect"
+        [(ngModel)]="configSelect"
+        (ngModelChange)="onConfigChange()"
+      >
+        <option *ngFor="let config of option.configs" [ngValue]="config">
+          {{ config.description }}
+        </option>
+      </select>
+    </div>
+    <div class="infos-container" *ngIf="configSelect">
+      <span
+        >Range: {{ configSelect.range }} miles - Max speed:
+        {{ configSelect.speed }} - Cost:
+        {{ configSelect.price | currency }}</span
+      >
+    </div>
+    <div class="checkbox-container" *ngIf="option.towHitch || option.yoke">
+      <div class="check" *ngIf="option.towHitch">
+        <label for="includeTow">Tow hitch ?</label>
+        <input
+          type="checkbox"
+          id="includeTow"
+          [(ngModel)]="towHitch"
+          (ngModelChange)="onTowChange()"
+        />
+      </div>
+      <div class="check" *ngIf="option.yoke">
+        <label for="includeYoke">Yoke steering wheel ?</label>
+        <input
+          type="checkbox"
+          id="includeYoke"
+          [(ngModel)]="yoke"
+          (ngModelChange)="onYokeChange()"
+        />
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #loading>
+    <div class="loading-container">
+      <span>Loading...</span>
+    </div>
+  </ng-template>
 </div>

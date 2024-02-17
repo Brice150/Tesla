@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Config } from '../interfaces/config';
 import { Model } from '../interfaces/model';
+import { Option } from '../interfaces/option';
 
 @Injectable({
   providedIn: 'root',
@@ -10,8 +10,8 @@ import { Model } from '../interfaces/model';
 export class RepositoryService {
   constructor(private http: HttpClient) {}
 
-  getOptions(modelId: string): Observable<Config> {
-    return this.http.get<Config>(`/options/${modelId}`);
+  getOption(modelCode: string): Observable<Option> {
+    return this.http.get<Option>(`/options/${modelCode}`);
   }
 
   getModels(): Observable<Model[]> {

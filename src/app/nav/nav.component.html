@@ -8,6 +8,9 @@
     routerLinkActive="active"
     [disabled]="!stepService.isStep2Available"
     [ngClass]="{ 'disabled-button': !stepService.isStep2Available }"
+    [title]="
+      !stepService.isStep2Available ? 'Complete Step 1 to continue' : 'Step 2'
+    "
   >
     Step 2
   </button>
@@ -17,6 +20,9 @@
     routerLinkActive="active"
     [disabled]="!stepService.isStep3Available"
     [ngClass]="{ 'disabled-button': !stepService.isStep3Available }"
+    [title]="
+      !stepService.isStep3Available ? 'Complete Step 2 to continue' : 'Step 3'
+    "
   >
     Step 3
   </button>

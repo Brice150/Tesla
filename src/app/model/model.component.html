@@ -1,0 +1,34 @@
+<div class="container">
+  <span class="title">Step 1: Choose your Model and color</span>
+  <ng-container *ngIf="models$ | async as models; else loading">
+    <div class="select-container">
+      <span>Model:</span>
+      <select
+        id="modelSelect"
+        [(ngModel)]="modelSelect"
+        (ngModelChange)="onModelChange()"
+      >
+        <option *ngFor="let model of models" [ngValue]="model">
+          {{ model.description }}
+        </option>
+      </select>
+    </div>
+    <div class="select-container" *ngIf="modelSelect">
+      <span>Color:</span>
+      <select
+        id="colorSelect"
+        [(ngModel)]="colorSelect"
+        (ngModelChange)="onColorChange()"
+      >
+        <option *ngFor="let color of modelSelect.colors" [ngValue]="color">
+          {{ color.description }}
+        </option>
+      </select>
+    </div>
+  </ng-container>
+  <ng-template #loading>
+    <div class="loading-container">
+      <span>Loading...</span>
+    </div>
+  </ng-template>
+</div>

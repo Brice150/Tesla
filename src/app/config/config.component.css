@@ -1,10 +1,10 @@
 .container {
   margin: auto;
   margin-top: 70px;
-  margin-bottom: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   width: 90%;
 }
 
@@ -12,4 +12,84 @@
   font-size: 20px;
   font-weight: 700;
   text-align: center;
+  margin-bottom: 20px;
+}
+
+.container .select-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.container .select-container span {
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.container .select-container select {
+  font-size: 17px;
+  font-weight: 500;
+  border: 2px solid var(--text-color);
+  border-radius: 5px;
+  outline: none;
+  background: transparent;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.container .select-container select option {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.container .loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.container .loading-container span {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.infos-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.infos-container span {
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.checkbox-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.checkbox-container .check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px;
+}
+
+.checkbox-container .check label {
+  margin-right: 8px;
+  font-size: 18px;
+  font-weight: 500;
 }

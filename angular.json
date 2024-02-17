@@ -23,7 +23,7 @@
               "src/assets",
               "src/mockServiceWorker.js"
             ],
-            "styles": ["src/styles.css"],
+            "styles": ["src/styles.css", "node_modules/ngx-toastr/toastr.css"],
             "scripts": []
           },
           "configurations": {

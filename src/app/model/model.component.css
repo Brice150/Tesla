@@ -1,7 +1,6 @@
 .container {
   margin: auto;
   margin-top: 70px;
-  margin-bottom: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,14 +12,15 @@
   font-size: 20px;
   font-weight: 700;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .container .select-container {
-  margin-top: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 300px;
+  margin-bottom: 20px;
 }
 
 .container .select-container span {
@@ -37,9 +37,22 @@
   background: transparent;
   color: var(--text-color);
   text-align: center;
-  width: 200px;
+  width: 220px;
 }
 
 .container .select-container select option {
   background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.container .loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.container .loading-container span {
+  font-size: 25px;
+  font-weight: 700;
 }

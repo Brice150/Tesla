@@ -4,17 +4,20 @@ import { FormsModule } from '@angular/forms';
 import { StepService } from '../core/services/step.service';
 import { RepositoryService } from '../core/services/repository.service';
 import { Model } from '../core/interfaces/model';
+import { Observable } from 'rxjs';
+import { Color } from '../core/interfaces/color';
 
 @Component({
-  selector: 'app-model-selection',
+  selector: 'app-model',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './model-selection.component.html',
-  styleUrl: './model-selection.component.css',
+  templateUrl: './model.component.html',
+  styleUrl: './model.component.css',
 })
-export class ModelSelectionComponent implements OnInit {
-  colorSelect?: string;
-  modelSelect?: string;
+export class ModelComponent implements OnInit {
+  colorSelect?: Color;
+  modelSelect?: Model;
+  models$?: Observable<Model[]>;
 
   constructor(
     public stepService: StepService,
@@ -22,16 +25,15 @@ export class ModelSelectionComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.colorSelect = this.stepService.selectedColor;
     this.modelSelect = this.stepService.selectedModel;
-    this.repositoryService.getModels().subscribe((models: Model[]) => {
-      console.log(models);
-    });
+    this.colorSelect = this.stepService.selectedColor;
+    this.models$ = this.repositoryService.getModels();
   }
 
   onModelChange(): void {
     if (this.modelSelect) {
       this.stepService.selectedModel = this.modelSelect;
+      this.colorSelect = this.stepService.selectedColor;
     }
   }
 
