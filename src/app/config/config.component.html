@@ -3,21 +3,17 @@
   <ng-container *ngIf="option$ | async as option; else loading">
     <div class="select-container">
       <span>Config:</span>
-      <select
-        id="configSelect"
-        [(ngModel)]="configSelect"
-        (ngModelChange)="onConfigChange()"
-      >
+      <select id="configSelect" [(ngModel)]="stepService.selectedConfig">
         <option *ngFor="let config of option.configs" [ngValue]="config">
           {{ config.description }}
         </option>
       </select>
     </div>
-    <div class="infos-container" *ngIf="configSelect">
+    <div class="infos-container" *ngIf="stepService.selectedConfig">
       <span
-        >Range: {{ configSelect.range }} miles - Max speed:
-        {{ configSelect.speed }} - Cost:
-        {{ configSelect.price | currency }}</span
+        >Range: {{ stepService.selectedConfig.range }} miles - Max speed:
+        {{ stepService.selectedConfig.speed }} - Cost:
+        {{ stepService.selectedConfig.price | currency }}</span
       >
     </div>
     <div class="checkbox-container" *ngIf="option.towHitch || option.yoke">
@@ -26,8 +22,7 @@
         <input
           type="checkbox"
           id="includeTow"
-          [(ngModel)]="towHitch"
-          (ngModelChange)="onTowChange()"
+          [(ngModel)]="stepService.selectedTowHitch"
         />
       </div>
       <div class="check" *ngIf="option.yoke">
@@ -35,8 +30,7 @@
         <input
           type="checkbox"
           id="includeYoke"
-          [(ngModel)]="yoke"
-          (ngModelChange)="onYokeChange()"
+          [(ngModel)]="stepService.selectedYoke"
         />
       </div>
     </div>

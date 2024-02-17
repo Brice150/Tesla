@@ -1,3 +1,51 @@
 <div class="container">
   <span class="title">Step 3: Summary</span>
+  <span class="model"
+    >Your Tesla {{ stepService.selectedModel?.description }}
+  </span>
+  <div class="infos-container">
+    <div class="info">
+      <span class="bold">{{ stepService.selectedConfig?.description }}</span>
+      <span
+        >Range: {{ stepService.selectedConfig?.range }} miles - Max speed:
+        {{ stepService.selectedConfig?.speed }}</span
+      >
+    </div>
+    <div class="info">
+      <span>{{ stepService.selectedConfig?.price | currency }}</span>
+    </div>
+  </div>
+  <div class="infos-container">
+    <div class="info">
+      <span class="bold">{{ stepService.selectedColor?.description }}</span>
+    </div>
+    <div class="info">
+      <span>{{ stepService.selectedColor?.price | currency }}</span>
+    </div>
+  </div>
+  <div class="infos-container" *ngIf="stepService.selectedTowHitch">
+    <div class="info">
+      <span class="bold">Tow Hitch Package</span>
+    </div>
+    <div class="info">
+      <span>{{ 1000 | currency }}</span>
+    </div>
+  </div>
+  <div class="infos-container" *ngIf="stepService.selectedYoke">
+    <div class="info">
+      <span class="bold">Yoke Package</span>
+    </div>
+    <div class="info">
+      <span>{{ 1000 | currency }}</span>
+    </div>
+  </div>
+  <hr />
+  <div class="infos-container">
+    <div class="info">
+      <span class="total">Total Cost</span>
+    </div>
+    <div class="info">
+      <span class="total">{{ stepService.getTotalCost() | currency }}</span>
+    </div>
+  </div>
 </div>

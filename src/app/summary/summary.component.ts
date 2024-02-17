@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { StepService } from '../core/services/step.service';
 
 @Component({
   selector: 'app-summary',
@@ -8,4 +9,6 @@ import { Component } from '@angular/core';
   templateUrl: './summary.component.html',
   styleUrl: './summary.component.css',
 })
-export class SummaryComponent {}
+export class SummaryComponent {
+  constructor(public stepService: StepService) {}
+}

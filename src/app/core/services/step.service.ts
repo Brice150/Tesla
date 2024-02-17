@@ -26,6 +26,9 @@ export class StepService {
   }
 
   set selectedModel(model: Model) {
+    // Reset config and options
+    this.resetConfigAndOptions();
+
     this._selectedModel = model;
 
     // First color selected by default
@@ -71,9 +74,6 @@ export class StepService {
 
   onModelSelected(): void {
     if (this._selectedModel && this._selectedColor) {
-      // Reset config and options
-      this.resetConfigAndOptions();
-
       // Show a new image
       this.imageSrc = `${this.imagesPath}${this._selectedModel.code}/${this._selectedColor.code}.jpg`;
 
@@ -84,7 +84,7 @@ export class StepService {
 
   grantStep2Access(): void {
     if (!this.isStep2Available) {
-      this.toastrService.success('Step 2 available', 'Step 2', {
+      this.toastrService.success('Step 2 available', 'Granted Access', {
         positionClass: 'toast-bottom-center',
       });
       this.isStep2Available = true;
@@ -93,7 +93,7 @@ export class StepService {
 
   grantStep3Access(): void {
     if (!this.isStep3Available) {
-      this.toastrService.success('Step 3 available', 'Step 3', {
+      this.toastrService.success('Step 3 available', 'Granted Access', {
         positionClass: 'toast-bottom-center',
       });
       this.isStep3Available = true;
@@ -107,5 +107,14 @@ export class StepService {
 
     // We need to select a config again to go to Step 3
     this.isStep3Available = false;
+  }
+
+  getTotalCost(): number | undefined {
+    const cost: number | undefined =
+      (this._selectedConfig?.price ?? 0) +
+      (this._selectedColor?.price ?? 0) +
+      (this._selectedTowHitch ? 1000 : 0) +
+      (this._selectedYoke ? 1000 : 0);
+    return cost;
   }
 }

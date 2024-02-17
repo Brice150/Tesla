@@ -6,6 +6,7 @@
   justify-content: center;
   flex-direction: column;
   width: 90%;
+  max-width: 1000px;
 }
 
 .container .title {
@@ -47,10 +48,10 @@
 }
 
 .container .loading-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .container .loading-container span {
@@ -77,19 +78,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .checkbox-container .check {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 20px;
+  margin: 5px 20px;
 }
 
 .checkbox-container .check label {
   margin-right: 8px;
   font-size: 18px;
   font-weight: 500;
+}
+
+@media screen and (max-width: 470px) {
+  .container {
+    margin-top: 150px;
+  }
 }
