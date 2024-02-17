@@ -4,6 +4,9 @@
     <div class="select-container">
       <span>Model:</span>
       <select id="modelSelect" [(ngModel)]="stepService.selectedModel">
+        <option [ngValue]="stepService.selectedModel" disabled hidden>
+          {{ stepService.selectedModel?.description }}
+        </option>
         <option *ngFor="let model of models" [ngValue]="model">
           {{ model.description }}
         </option>

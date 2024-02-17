@@ -4,6 +4,9 @@
     <div class="select-container">
       <span>Config:</span>
       <select id="configSelect" [(ngModel)]="stepService.selectedConfig">
+        <option [ngValue]="stepService.selectedConfig" disabled hidden>
+          {{ stepService.selectedConfig?.description }}
+        </option>
         <option *ngFor="let config of option.configs" [ngValue]="config">
           {{ config.description }}
         </option>
